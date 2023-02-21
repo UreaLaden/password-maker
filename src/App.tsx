@@ -1,25 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { styles } from "./App.css";
+import Generator from "./Generator/Generator";
+import Output from "./Output/Output";
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className={styles.appContainer}>
+      <div className={styles.mainContainer}>
+        <div className={styles.header}>Password Generator</div>
+        <div className={styles.output}>
+          <Output />
+        </div>
+        <div className={styles.generatorModal}>
+          <Generator />
+        </div>
+      </div>
+    </main>
   );
 }
 
