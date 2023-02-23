@@ -5,11 +5,17 @@ export const styles = mergeStyleSets({
   optionContainer: {
     display: "flex",
     flexDirection: "column",
-    rowGap: "20%",
     height: "50%",
-    "@media screen and (min-width:1024px)": {},
-    "@media screen and (max-width:1023px)": {},
-    "@media screen and (max-width:769px)": {},
+    "@media screen and (min-width:1024px)": {
+        rowGap: "10%",
+
+    },
+    "@media screen and (max-width:1023px)": {
+        rowGap:"15%"
+    },
+    "@media screen and (max-width:769px)": {
+        rowGap:"10%"
+    },
 },
 optionWrapper: {
     display:"flex",

@@ -6,11 +6,16 @@ export const styles = mergeStyleSets({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    width: "32%",
     color:Colors.AlmostWhite,
-    "@media screen and (min-width:1024px)": {},
-    "@media screen and (max-width:1023px)": {},
-    "@media screen and (max-width:769px)": {},
+    "@media screen and (min-width:1024px)": {
+      width:"45%"
+    },
+    "@media screen and (max-width:1023px)": {
+      width: "32%",
+    },
+    "@media screen and (max-width:769px)": {
+      width: "32%",
+    },
   },
   ratingText: {
     fontWeight: "bold",
