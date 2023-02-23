@@ -16,6 +16,37 @@ export const styles = mergeStyleSets({
         "@media screen and (max-width:1023px)":{
         },
         "@media screen and (max-width:769px)":{
+        },
+        ":hover":{
+            cursor:"pointer",
+            backgroundColor:Colors.DarkGrey,
+            border:`1px solid ${Colors.NeonGreen}`,
+            "#buttonText":{
+                color:Colors.NeonGreen
+            },
+            "#arrow":{
+                svg:{
+                    path:{
+                        'stroke':Colors.NeonGreen,
+                        'fill':Colors.NeonGreen,
+                    }
+                }
+            }
+        },
+        ":active":{
+            backgroundColor:Colors.NeonGreen,
+            border:`4px solid ${Colors.VeryDarkGrey}`,
+            "#buttonText":{
+                color:Colors.VeryDarkGrey                
+            },
+            "#arrow":{
+                svg:{
+                    path:{
+                        'stroke':Colors.VeryDarkGrey,
+                        'fill':Colors.VeryDarkGrey,
+                    }
+                }
+            }
         }
     },
     buttonText:{

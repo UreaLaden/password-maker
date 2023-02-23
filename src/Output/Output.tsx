@@ -5,7 +5,7 @@ export const Output = () => {
   return (
     <div className={styles.outputContainer}>
       <div className={styles.result}>PTx1f5DaFX</div>
-      <Icon iconName={"copy"} />
+      <Icon iconName={"public-copy"} />
     </div>
   );
 };
