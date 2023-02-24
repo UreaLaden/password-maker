@@ -33,7 +33,7 @@ export const styles = mergeStyleSets({
     },
   },
   barOne: {
-    border: "1px solid white",
+    border: "1px solid white",        
     "@media screen and (min-width:1024px)": {
       height: "28px",
       width: "8px",

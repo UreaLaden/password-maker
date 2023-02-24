@@ -8,7 +8,11 @@ export const Output = () => {
   return (
     <div className={styles.outputContainer}>
       <div className={styles.result}>{context.newPassword}</div>
-      <Icon iconName={"public-copy"} />
+      <Icon 
+        className={styles.copyIcon} 
+        iconName={"public-copy"}
+        onClick={() => navigator.clipboard.writeText(context.newPassword)}
+        />
     </div>
   );
 };

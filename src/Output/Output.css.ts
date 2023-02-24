@@ -19,5 +19,8 @@ export const styles = mergeStyleSets({
             fontSize:"1.2rem",
         }
     },
-    result:{}
+    result:{},
+    copyIcon:{
+        cursor:'pointer',
+    }
 })

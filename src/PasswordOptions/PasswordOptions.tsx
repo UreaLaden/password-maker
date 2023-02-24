@@ -8,13 +8,6 @@ export const PasswordOptions = () => {
   const optionRef = React.useRef<any>();
   const context = React.useContext<PasswordContextProps>(PasswordContext);
 
-  React.useEffect(()=>{
-    console.log(context.hasUppercase);
-    console.log(context.hasLowercase);
-    console.log(context.hasNumbers);
-    console.log(context.hasSymbols);
-  },[context])
-
   return (
     <div className={styles.optionContainer}>
       {passwordOptions.map((val, idx) => (

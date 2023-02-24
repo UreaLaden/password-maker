@@ -16,7 +16,6 @@ export const GeneratorButton = () => {
       context.hasNumbers,
       context.hasSymbols,
     ].length;
-    console.log(`Length: ${context.passwordLength} Variation: ${variationsCount}`);
     for (let i = 0; i < context.passwordLength; i += variationsCount) {
       if (context.hasLowercase) {
         password += getRandomLower();
@@ -32,7 +31,6 @@ export const GeneratorButton = () => {
       }
     }
     const generatedPassword =password.slice(0,context.passwordLength); 
-    console.log(generatedPassword)
     context.generatePassword(generatedPassword);      
   };
   const getRandomLower = () =>

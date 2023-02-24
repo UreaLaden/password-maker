@@ -1,3 +1,5 @@
+import { IStyle } from "@fluentui/react";
+
 export const enum Colors {
     Red = "#F64A4A",
     Orange = "#FB7C58",
@@ -23,3 +25,10 @@ export const passwordOptions = [
     "Include Numbers",
     "Include Symbols",
   ];
+
+export const ratings = new Map<string,[string,string]>();
+ratings.set('0',[`${Colors.Red}`,"TOO WEAK!"]);
+ratings.set('1',[`${Colors.Red}`,"TOO WEAK!"]);
+ratings.set('2',[`${Colors.Orange}`,"WEAK"]);
+ratings.set('3',[`${Colors.Yellow}`,'MEDIUM']);
+ratings.set('4',[`${Colors.NeonGreen}`,'STRONG']);
