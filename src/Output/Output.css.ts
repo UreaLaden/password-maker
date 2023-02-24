@@ -10,13 +10,13 @@ export const styles = mergeStyleSets({
         alignItems:"center",
         padding:"0 5%",
         "@media screen and (min-width:1024px)":{
-            fontSize:"2vw",                        
+            fontSize:"1rem",                        
         },
         "@media screen and (max-width:1023px)":{
-            fontSize:"6vw",            
+            fontSize:"1.8rem",            
         },
         "@media screen and (max-width:769px)":{
-            fontSize:"9vw",
+            fontSize:"1.2rem",
         }
     },
     result:{}

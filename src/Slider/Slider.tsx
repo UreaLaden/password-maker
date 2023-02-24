@@ -1,41 +1,39 @@
-import { sliderStyles, styles } from "./Slider.css";
-import { Slider } from "@fluentui/react";
+import {  styles } from "./Slider.css";
 import * as React from "react";
+import { PasswordContext, PasswordContextProps } from "../store/passwordContext";
 
 export const SliderGroup = () => {
-  const [sliderStringValue, setSliderStringValue] = React.useState<string>("0");
-  const [sliderValue, setSliderValue] = React.useState<string>('1');
+    const context = React.useContext<PasswordContextProps>(PasswordContext);
   const sliderRef = React.useRef<HTMLInputElement>(null);
   const progressRef = React.useRef<HTMLInputElement>(null);
   const thumbRef = React.useRef<HTMLInputElement>(null);
 
   React.useEffect(() => {
-    console.log(`Slider Value Changed to ${sliderValue}`);
     const progress = progressRef.current;
     const thumb = thumbRef.current;
     const slider = sliderRef.current;
     if (slider && progress && thumb) {
         const maxVal = slider.getAttribute("max");
         if (maxVal) {
-            const newVal = (parseInt(sliderValue) / parseInt(maxVal)) * 100 + "%";
+            const newVal = (context.passwordLength / parseInt(maxVal)) * 100 + "%";
             progress.style.width = newVal;
             thumb.style.left = newVal;
         }
     }
-  }, [sliderValue]);
+  }, [context.passwordLength]);
   
   const customSlider = React.useCallback(() => {
     const slider = sliderRef.current;
     if (slider) {
-        setSliderValue(`${slider.value}`);
+        context.setPasswordLength(parseInt(slider.value))
     }
-  }, [sliderRef]);
+  }, [context]);
 
   let content = (
     <div className={styles.sliderContainer}>
       <div className={styles.label}>
         <div>Character Length</div>
-        <div className={styles.value}>{sliderValue}</div>
+        <div className={styles.value}>{context.passwordLength}</div>
       </div>
       <div className={styles.rangeSlider}>
         <input
@@ -44,8 +42,8 @@ export const SliderGroup = () => {
           className={styles.slider}
           type="range"
           min={1}
-          max={60}
-          value={sliderValue}
+          max={30}
+          value={context.passwordLength}
         />
         <div ref={thumbRef} className={styles.sliderThumb}></div>
         <div ref={progressRef} className={styles.progress}></div>

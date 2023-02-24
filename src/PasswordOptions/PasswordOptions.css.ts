@@ -7,66 +7,67 @@ export const styles = mergeStyleSets({
     flexDirection: "column",
     height: "50%",
     "@media screen and (min-width:1024px)": {
-        rowGap: "10%",
-
+      rowGap: "10%",
     },
     "@media screen and (max-width:1023px)": {
-        rowGap:"15%"
+      rowGap: "15%",
     },
     "@media screen and (max-width:769px)": {
-        rowGap:"10%"
-    },
-},
-optionWrapper: {
-    display:"flex",
-    alignItems:"center"
-},
-icon:{
-    position:'absolute',
-    top:1,
-    left:-19,
-    svg:{
-        path:{
-            'stroke':Colors.DarkGrey
-        }
-    }
-},
-option: {
-    position:"relative",
-    appearance: "none",
-    "-webkit-appearance": "none",
-    height:"20px",
-    width:'20px',
-    backgroundColor:Colors.DarkGrey,
-    borderRadius:"1px",
-    border:`2px solid ${Colors.AlmostWhite}`,
-    cursor:"pointer",
-    ":hover":{
-        backgroundColor:Colors.NeonGreen,
-        border:`2px solid ${Colors.NeonGreen}`,
-    },
-    ":checked":{
-        backgroundColor:Colors.NeonGreen,
-        border:`2px solid ${Colors.NeonGreen}`
-    }
-},
-label: {
-    position:"relative",
-    cursor:"pointer",
-    color:Colors.AlmostWhite,
-    "@media screen and (min-width:1024px)": {
-        fontSize:"1.5vw"
-    },
-    "@media screen and (max-width:1023px)": {
-        fontSize:"3vw"
-    },
-    "@media screen and (max-width:769px)": {
-        fontSize:"4vw"
+      rowGap: "10%",
     },
   },
-  labelText:{
-    marginLeft:"20px"
-  }
+  optionWrapper: {
+    display: "flex",
+    alignItems: "center",
+  },
+  icon: {
+    position: "absolute",
+    pointerEvents: "none",
+    top: 1,
+    left: -19,
+    svg: {
+      path: {
+        stroke: Colors.DarkGrey,
+      },
+    },
+  },
+  option: {
+    position: "relative",
+    appearance: "none",
+    "-webkit-appearance": "none",
+    height: "20px",
+    width: "20px",
+    backgroundColor: Colors.DarkGrey,
+    borderRadius: "1px",
+    border: `2px solid ${Colors.AlmostWhite}`,
+    cursor: "pointer",
+    ":hover": {
+      backgroundColor: Colors.NeonGreen,
+      border: `2px solid ${Colors.NeonGreen}`,
+    },
+    ":checked": {
+      backgroundColor: Colors.NeonGreen,
+      border: `2px solid ${Colors.NeonGreen}`,
+    },
+  },
+  label: {
+    position: "relative",
+    cursor: "pointer",
+    pointerEvents: "all",
+    color: Colors.AlmostWhite,
+    "@media screen and (min-width:1024px)": {
+      fontSize: "1.5vw",
+    },
+    "@media screen and (max-width:1023px)": {
+      fontSize: "3vw",
+    },
+    "@media screen and (max-width:769px)": {
+      fontSize: "4vw",
+    },
+  },
+  labelText: {
+    marginLeft: "20px",
+  },
 });
 
 export const checkboxStyles: ICheckboxStyles = {
