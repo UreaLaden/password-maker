@@ -46,18 +46,18 @@ export const PasswordOptions = () => {
     <div className={styles.optionContainer}>
       {passwordOptions.map((val, idx) => (
         <div key={idx} id={val} className={styles.optionWrapper}>
+          <label htmlFor={`option-${val}-${idx}`}></label>
           <input
             onClick={() => {
               context.optionSelected(val.split(" ")[1]);
             }}
             className={styles.option}
             type="checkbox"
-            id={"passwordOption"}
+            id={`option-${val}-${idx}`}
           />
           <label className={styles.label} htmlFor={`val-${idx}`}>
             <Icon
               className={styles.icon}
-              id={"check"}
               iconName={"public-check"}
             />
             <div className={styles.labelText}>{val}</div>
