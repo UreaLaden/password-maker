@@ -38,11 +38,10 @@ export const Slider = (props: SliderProps) => {
   let content = (
     <div className={styles.sliderContainer}>
       <div className={styles.label}>
-        <div>Character Length</div>
+        <label htmlFor={"initial-slider"}>Character Length</label>
         <div className={styles.value}>{context.passwordLength}</div>
       </div>
       <div className={styles.rangeSlider}>
-        <label htmlFor={"initial-slider"} style={{display:'none'}}>Slider</label>
         <input
           onChange={customSlider}
           id={"initial-slider"}
