@@ -45,7 +45,7 @@ export const PasswordOptions = () => {
   return (
     <div className={styles.optionContainer}>
       {passwordOptions.map((val, idx) => (
-        <div key={idx} id={val} className={styles.optionWrapper}>
+        <div key={idx} id={`${idx}`} className={styles.optionWrapper}>
           <label htmlFor={`option--${idx}`}></label>
           <input
             onClick={() => {
