@@ -11,24 +11,24 @@ export const styles = mergeStyleSets({
       width:"45%"
     },
     "@media screen and (max-width:1023px)": {
-      width: "32%",
+      width: "48%",
     },
     "@media screen and (max-width:769px)": {
-      width: "32%",
+      width: "48%",
     },
   },
   ratingText: {
     fontWeight: "bold",
     "@media screen and (min-width:1024px)": {
       fontSize: "1.3vw",
-      width: "60%",
+      width: "70%",
     },
     "@media screen and (max-width:1023px)": {
       fontSize: "3vw",
-      width: "60%",
+      width: "70%",
     },
     "@media screen and (max-width:769px)": {
-      width: "60%",
+      width: "70%",
       fontSize: "4vw",
     },
   },
