@@ -1,7 +1,7 @@
 {
   "name": "password-maker",
   "version": "0.1.0",
-  "homepage": "https://urealaden/github.io/password-maker",
+  "homepage": "https://urealaden.github.io/password-maker",
   "private": true,
   "dependencies": {
     "@fluentui/react": "^8.105.11",

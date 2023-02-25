@@ -33,83 +33,92 @@ Users should be able to:
 ### Screenshot
 
 ![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![](./public/assets/images/screenshot_mobile.png)
+![](./public/assets/images/screenshot_tablet.png)
+![](./public/assets/images/screenshot_desktop.png)
+![](./public/assets/images/password-maker.gif)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Solution](https://www.frontendmentor.io/solutions/responsive-password-generator-with-legit-strength-monitor-L_sszuQSBQ)
+- Live Site URL: [Live Site](https://urealaden.github.io/password-maker/)
 
 ## My process
 
 ### Built with
 
-- Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
-- CSS Grid
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
 - [Styled Components](https://styled-components.com/) - For styles
-- [DataMuseAPI](https://api.datamuse.com/words?ml=duck&sp=l*&max=5)
 - [zxcvbn Password Strength Estimation](https://github.com/dropbox/zxcvbn)
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+This was a fun project. I can see a noticeable change with using the mobile first workflow. With every view, I find myself getting more into the habit of cross checking my changes with tablet and desktop before moving on. Oddly enough styling the slider and checkboxes proved the most painful. I didn't want to guess at what it took to measure a passwords strength so I decided to go with zxcvbn which was perfect for my needs and a recognized measure throughout the community.
 
-To see how you can add code snippets, see below:
-
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
 ```css
-.proud-of-this-css {
-  color: papayawhip;
-}
+copyToastIn: {
+   ...
+    opacity: 1,
+    transition: "opacity 250ms ease",
+  },
+  copyToastOut: {
+    opacity: 0,
+    transition: "opacity 250ms ease",
+   ...
+  },
 ```
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
+const generatePassword = () => {
+    let password = "";
+    let variationsCount = [
+      context.hasLowercase,
+      context.hasUppercase,
+      context.hasNumbers,
+      context.hasSymbols,
+    ].length;
+    for (let i = 0; i < context.passwordLength; i += variationsCount) {
+      if (context.hasLowercase) {
+        password += getRandomLower();
+      }
+      if (context.hasUppercase) {
+        password += getRandomUpper();
+      }
+      if (context.hasNumbers) {
+        password += getRandomNumber();
+      }
+      if (context.hasSymbols) {
+        password += getRandomSymbol();
+      }
+    }
+    const generatedPassword =password.slice(0,context.passwordLength); 
+    context.generatePassword(generatedPassword);      
+  };
+  const getRandomLower = () =>
+    String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+  const getRandomUpper = () =>
+    String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+  const getRandomNumber = () =>
+    String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+  const getRandomSymbol = () => {
+    const symbols = "!@#$%^&*(){}[]=<>/,.";
+    return symbols[Math.floor(Math.random() * symbols.length)];
+  };
 ```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+There's still quite a bit I don't understand. For example, I was having a fair amount of difficulty styling the input slider and checkboxes.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [Fade in-out text in React](https://levelup.gitconnected.com/fade-in-out-text-in-react-fa8fc7a2a0b1) - Hiding and rendering the COPIED notifications wasn't that great of an experience so used this article to help put together a nice fade in and out effect.
+- [Auto Animate](https://auto-animate.formkit.com/#examples) - Although I ended up not going with this, I think its still a really good plugin for other projects.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- Website - [Leaundrae Mckinney](https://www.your-site.com)
+- Frontend Mentor - [@urealaden](https://www.frontendmentor.io/profile/UreaLaden)
