@@ -30,23 +30,21 @@ export const PasswordOptions = () => {
   }, [showToast]);
 
   React.useEffect(() => {
-    if(!context.passwordUpdated) return;
+    if (!context.passwordUpdated) return;
 
     const intervalId = setInterval(() => {
       if (context.passwordUpdated) {
-        context.updatePasswordStatus(false)
+        context.updatePasswordStatus(false);
       }
     }, 1000 * 10);
 
     return () => clearInterval(intervalId);
   }, [context]);
 
-
   return (
     <div className={styles.optionContainer}>
       {passwordOptions.map((val, idx) => (
         <div key={idx} id={`${idx}`} className={styles.optionWrapper}>
-          <label htmlFor={`option--${idx}`}></label>
           <input
             onClick={() => {
               context.optionSelected(val.split(" ")[1]);
@@ -56,15 +54,20 @@ export const PasswordOptions = () => {
             id={`option--${idx}`}
           />
           <div className={styles.label}>
-            <Icon
-              className={styles.icon}
-              iconName={"public-check"}
-            />
-            <div className={styles.labelText}>{val}</div>
+            <Icon className={styles.icon} iconName={"public-check"} />
+            <label className={styles.labelText} htmlFor={`option--${idx}`}>
+              {val}
+            </label>
           </div>
         </div>
       ))}
-      <div className={context.passwordUpdated ? styles.hintContainerIn : styles.hintContainerOut}>
+      <div
+        className={
+          context.passwordUpdated
+            ? styles.hintContainerIn
+            : styles.hintContainerOut
+        }
+      >
         <div className={styles.labelContainer}>
           <label htmlFor={"password-hint"}>Don't forget your password</label>
           <textarea
