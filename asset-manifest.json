@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/password-maker/static/css/main.95972d2a.css",
-    "main.js": "/password-maker/static/js/main.a0f2cb87.js",
+    "main.js": "/password-maker/static/js/main.4e3114e1.js",
     "index.html": "/password-maker/index.html",
     "main.95972d2a.css.map": "/password-maker/static/css/main.95972d2a.css.map",
-    "main.a0f2cb87.js.map": "/password-maker/static/js/main.a0f2cb87.js.map"
+    "main.4e3114e1.js.map": "/password-maker/static/js/main.4e3114e1.js.map"
   },
   "entrypoints": [
     "static/css/main.95972d2a.css",
-    "static/js/main.a0f2cb87.js"
+    "static/js/main.4e3114e1.js"
   ]
 }
