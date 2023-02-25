@@ -6,7 +6,7 @@ function App() {
   return (
     <main className={styles.appContainer}>
       <div className={styles.mainContainer}>
-        <div className={styles.header}>Password Generator</div>
+        <h1 className={styles.header}>Password Generator</h1>
         <div className={styles.output}>
           <Output />
         </div>
