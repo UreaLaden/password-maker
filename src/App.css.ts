@@ -45,7 +45,7 @@ export const styles = mergeStyleSets({
   generatorModal: {
     backgroundColor: Colors.DarkGrey,
     "@media screen and (min-width:1024px)": {
-        height: "55%",
+        height: "70%",
         width: "30%",
     },
     "@media screen and (max-width:1023px)": {

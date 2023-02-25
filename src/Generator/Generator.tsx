@@ -7,7 +7,7 @@ import { styles } from "./Generator.css";
 export const Generator = () => {
   return (
     <div className={styles.generatorContainer}>
-        <Slider />
+        <Slider minVal={1} maxVal={30}/>
         <PasswordOptions />
         <StrengthMeter/>
         <GeneratorButton />

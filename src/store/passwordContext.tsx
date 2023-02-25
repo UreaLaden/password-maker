@@ -1,4 +1,5 @@
 import * as React from "react";
+import { hints } from "../utils/helpers";
 
 export interface PasswordContextProps {
   passwordLength: number;
@@ -7,9 +8,13 @@ export interface PasswordContextProps {
   hasNumbers: boolean;
   hasSymbols: boolean;
   newPassword:string;
+  passwordHint:string;
+  passwordUpdated:boolean;
   setPasswordLength: (length: number) => void;
   optionSelected:(option:string) => void;
   generatePassword:(newPassword:string) => void;
+  updateHint:(password:string) => void;
+  updatePasswordStatus:(status:boolean) => void;
 }
 
 export interface PasswordContextProviderProps {
@@ -23,9 +28,13 @@ export const PasswordContext = React.createContext<PasswordContextProps>({
   hasNumbers: false,
   hasSymbols: false,
   newPassword:"",
+  passwordHint:"",
+  passwordUpdated:false,
   setPasswordLength: (number) => {},
   optionSelected:(option:string) => {},
-  generatePassword:(newPassword:string) => {}
+  generatePassword:(newPassword:string) => {},
+  updateHint:(password:string) => {},
+  updatePasswordStatus:(status:boolean) => {},
 });
 
 export const PasswordContextProvider: React.FC<PasswordContextProviderProps> = (
@@ -40,6 +49,8 @@ export const PasswordContextProvider: React.FC<PasswordContextProviderProps> = (
     React.useState<boolean>(false);
   const [symbolsSelected, setSymbolsSelected] = React.useState<boolean>(false);
   const [password,setPassword] = React.useState<string>("");
+  const [hint,setHint] = React.useState<string>("");
+  const [receivedNewPassword,setReceivedNewPassword] = React.useState<boolean>(false);
 
   const setUppercaseSelectedHandler = () => {
     setUppercaseSelected(!uppercaseSelected);
@@ -58,6 +69,11 @@ export const PasswordContextProvider: React.FC<PasswordContextProviderProps> = (
   };
   const setPasswordHandler = (newPassword:string) => {
     setPassword(newPassword);
+    setHintHandler(newPassword);
+    setReceivedNewPassword(true);
+  }
+  const setReceivedNewPasswordHandler = (status:boolean) => {
+    setReceivedNewPassword(status);
   }
 
   const optionSelectedHandler = (option:string) => {
@@ -77,6 +93,29 @@ export const PasswordContextProvider: React.FC<PasswordContextProviderProps> = (
     }
   }
 
+  const setHintHandler = (password:string) =>{
+    const passwordArray = password.split('');
+    let hint = "";
+    for(let i=0;i<passwordArray.length;i++){
+      let value = passwordArray[i];
+      if(!isNaN(parseInt(value))){
+        hint += hints.get(value);
+      }
+      else if(/[a-zA-z]/.test(value)){
+        if(value === value.toLowerCase()){
+          hint += hints.get(value)?.toLowerCase();
+        }else{
+          hint += hints.get(value.toLowerCase())?.toUpperCase();
+        }
+      }
+      else{
+        hint += hints.get(value)
+      }
+      hint += (i === passwordArray.length ? "" : " ");
+    }
+    setHint(hint);
+  }
+
   const context:PasswordContextProps = {
     passwordLength: selectedLength,
     hasUppercase: uppercaseSelected,
@@ -84,9 +123,13 @@ export const PasswordContextProvider: React.FC<PasswordContextProviderProps> = (
     hasNumbers: numbersSelected,
     hasSymbols: symbolsSelected,
     newPassword:password,
+    passwordHint:hint,
+    passwordUpdated:receivedNewPassword,
     setPasswordLength:setSelectedLengthHandler,
     optionSelected:optionSelectedHandler,
-    generatePassword:setPasswordHandler
+    generatePassword:setPasswordHandler,
+    updateHint:setHintHandler,
+    updatePasswordStatus:setReceivedNewPasswordHandler,
   };
   return (
     <PasswordContext.Provider value={context}>

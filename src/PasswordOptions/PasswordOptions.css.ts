@@ -1,4 +1,4 @@
-import { ICheckboxStyles, mergeStyleSets } from "@fluentui/react";
+import { mergeStyleSets } from "@fluentui/react";
 import { Colors } from "../utils/helpers";
 
 export const styles = mergeStyleSets({
@@ -23,12 +23,22 @@ export const styles = mergeStyleSets({
   icon: {
     position: "absolute",
     pointerEvents: "none",
-    top: 1,
-    left: -19,
     svg: {
       path: {
         stroke: Colors.DarkGrey,
       },
+    },
+    "@media screen and (min-width:1024px)": {
+      top: 0,
+      left: -19,
+    },
+    "@media screen and (max-width:1023px)": {
+      top: -1,
+      left: -19,
+    },
+    "@media screen and (max-width:769px)": {
+      top: 1,
+      left: -19,
     },
   },
   option: {
@@ -68,62 +78,111 @@ export const styles = mergeStyleSets({
   labelText: {
     marginLeft: "20px",
   },
-});
-
-export const checkboxStyles: ICheckboxStyles = {
-  label: {
-    color: Colors.AlmostWhite,
+  hint: {
+    resize: "none",
+    overflow: "hidden",
     pointerEvents: "none",
-  },
-  root: {
-    appearance: "none",
-    // ".ms-Checkbox-checkbox": {
-    //     border: `2px solid ${Colors.AlmostWhite}`,
-    //   "transition-property": "background,color,border,border-color",
-    //   "transition-duration": "200ms",
-    //   "transition-timing-function": "cubic-bezier(0.4, 0, 0.23, 1)",
-    // },
-    ":hover": {
-      //   ".ms-Checkbox-checkbox": {
-      //     border: `2px solid ${Colors.NeonGreen}`,
-      //     background: Colors.NeonGreen,
-      //   },
-      ".ms-Checkbox-text": {
-        color: Colors.AlmostWhite,
-      },
-      //   ".ms-Checkbox-checkmark": {
-      //     color: Colors.DarkGrey,
-      //   },
-    },
-  },
-  checkbox: {
-    border: `2px solid ${Colors.AlmostWhite}`,
-    transition: "border 200ms ease-out",
-    ":after": {
-      border: `2px solid red`,
-    },
-    // "transition-timing-function": "cubic-bezier(0.4, 0, 0.23, 1)",
-    // "transition-property": "border",
-    // "transition-duration": "200ms",
-  },
-  checkmark: {
+    background: Colors.VeryDarkGrey,
     color: Colors.AlmostWhite,
-    background: `${Colors.DarkGrey}`,
-
-    ":after": {
-      color: Colors.DarkGrey,
-      border: `4px solid red`,
-    },
   },
-  text: {
-    fontFamily: "JetBrains Mono",
-    color: Colors.AlmostWhite,
+  copyIcon: {
+    cursor: "pointer",
     "@media screen and (min-width:1024px)": {},
+    "@media screen and (max-width:1023px)": {},
+    "@media screen and (max-width:769px)": {
+    },
+    ":hover": {
+      svg: {
+        path: {
+          fill: Colors.AlmostWhite,
+        },
+      },
+    },
+  },
+  copyToastIn: {
+    fontFamily: "JetBrains Mono",
+    color: Colors.NeonGreen,
+    "@media screen and (min-width:1024px)": {
+      fontSize: "1vw",
+    },
     "@media screen and (max-width:1023px)": {
-      fontSize: "3vw",
+      fontSize: "2vw",
     },
     "@media screen and (max-width:769px)": {
-      fontSize: "4vw",
+      fontSize: "3vw",
+    },
+    opacity: 1,
+    transition: "opacity 250ms ease",
+  },
+  labelContainer:{
+    "@media screen and (min-width:1024px)": {
+      marginTop:"0%"
+    },
+    "@media screen and (max-width:1023px)": {
+      marginTop:"-7%"
+    },
+    "@media screen and (max-width:769px)": {
+      marginTop:'0%'
     },
   },
-};
+  copyContainer:{
+    position:'relative',
+    width:'25%',
+    height:"100%",
+    display:'flex',
+    flexDirection:'column',
+    alignItems:"center",
+    justifyContent:'center',
+    "@media screen and (min-width:1024px)": {
+    },
+    "@media screen and (max-width:1023px)": {
+      marginTop:"-2%",
+      justifyContent:'end',
+      flexDirection:"column-reverse"
+    },
+    "@media screen and (max-width:769px)": {
+      fexDirection:'column'
+    },
+  },
+  copyToastOut: {
+    opacity: 0,
+    transition: "opacity 250ms ease",
+    fontFamily: "JetBrains Mono",
+    color: Colors.NeonGreen,
+    "@media screen and (min-width:1024px)": {
+      fontSize: "1vw",
+    },
+    "@media screen and (max-width:1023px)": {
+      fontSize: "2vw",
+    },
+    "@media screen and (max-width:769px)": {
+      fontSize: "3vw",
+    },
+    "animation -name": "fade",
+    "animation-duration": "3s",
+  },
+  hintContainerIn: {
+    display:'flex',
+    opacity: 1,
+    transition: "opacity 250ms ease",
+    "@media screen and (min-width:1024px)": {
+    },
+    "@media screen and (max-width:1023px)": {
+    },
+    "@media screen and (max-width:769px)": {
+      marginTop:"-5%"
+    },
+  },
+  hintContainerOut: {
+    display:'flex',
+    opacity: 0,
+    transition: "opacity 250ms ease",
+    "@media screen and (min-width:1024px)": {
+    },
+    "@media screen and (max-width:1023px)": {
+    },
+    "@media screen and (max-width:769px)": {
+      marginTop:"-5%"
+    },
+  },
+});

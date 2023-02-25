@@ -1,9 +1,18 @@
-import {  styles } from "./Slider.css";
+import { styles } from "./Slider.css";
 import * as React from "react";
-import { PasswordContext, PasswordContextProps } from "../store/passwordContext";
+import {
+  PasswordContext,
+  PasswordContextProps,
+} from "../store/passwordContext";
 
-export const SliderGroup = () => {
-    const context = React.useContext<PasswordContextProps>(PasswordContext);
+interface SliderProps {
+  minVal: number;
+  maxVal: number;
+}
+
+export const Slider = (props: SliderProps) => {
+  const { minVal, maxVal } = props;
+  const context = React.useContext<PasswordContextProps>(PasswordContext);
   const sliderRef = React.useRef<HTMLInputElement>(null);
   const progressRef = React.useRef<HTMLInputElement>(null);
   const thumbRef = React.useRef<HTMLInputElement>(null);
@@ -13,19 +22,16 @@ export const SliderGroup = () => {
     const thumb = thumbRef.current;
     const slider = sliderRef.current;
     if (slider && progress && thumb) {
-        const maxVal = slider.getAttribute("max");
-        if (maxVal) {
-            const newVal = (context.passwordLength / parseInt(maxVal)) * 100 + "%";
-            progress.style.width = newVal;
-            thumb.style.left = newVal;
-        }
+      const newVal = (context.passwordLength / maxVal) * 100 + "%";
+      progress.style.width = newVal;
+      thumb.style.left = newVal;
     }
-  }, [context.passwordLength]);
-  
+  }, [context.passwordLength, maxVal]);
+
   const customSlider = React.useCallback(() => {
     const slider = sliderRef.current;
     if (slider) {
-        context.setPasswordLength(parseInt(slider.value))
+      context.setPasswordLength(parseInt(slider.value));
     }
   }, [context]);
 
@@ -38,11 +44,12 @@ export const SliderGroup = () => {
       <div className={styles.rangeSlider}>
         <input
           onChange={customSlider}
+          id={"initial-slider"}
           ref={sliderRef}
           className={styles.slider}
           type="range"
-          min={1}
-          max={30}
+          min={minVal}
+          max={maxVal}
           value={context.passwordLength}
         />
         <div ref={thumbRef} className={styles.sliderThumb}></div>
@@ -52,4 +59,4 @@ export const SliderGroup = () => {
   );
   return content;
 };
-export default SliderGroup;
+export default Slider;

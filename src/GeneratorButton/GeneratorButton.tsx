@@ -40,7 +40,7 @@ export const GeneratorButton = () => {
   const getRandomNumber = () =>
     String.fromCharCode(Math.floor(Math.random() * 10) + 48);
   const getRandomSymbol = () => {
-    const symbols = "!@#$%^&*(){}[]=<>/,. ";
+    const symbols = "!@#$%^&*(){}[]=<>/,.";
     return symbols[Math.floor(Math.random() * symbols.length)];
   };
   return (

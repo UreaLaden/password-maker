@@ -2,8 +2,6 @@ import { styles } from "./App.css";
 import Generator from "./Generator/Generator";
 import Output from "./Output/Output";
 
-
-
 function App() {
   return (
     <main className={styles.appContainer}>
