@@ -45,9 +45,9 @@ export const GeneratorButton = () => {
   };
   return (
     <button className={styles.buttonContainer} onClick={generatePassword}>
-      <div className={styles.buttonText} id={"buttonText"}>
+      <span className={styles.buttonText} id={"buttonText"}>
         GENERATE
-      </div>
+      </span>
       <Icon iconName={"public-arrow-right"} id={"arrow"} />
     </button>
   );
