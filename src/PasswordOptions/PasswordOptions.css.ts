@@ -66,13 +66,13 @@ export const styles = mergeStyleSets({
     pointerEvents: "all",
     color: Colors.AlmostWhite,
     "@media screen and (min-width:1024px)": {
-      fontSize: "1.5vw",
+      fontSize: "2vh",
     },
     "@media screen and (max-width:1023px)": {
-      fontSize: "3vw",
+      fontSize: "2vh",
     },
     "@media screen and (max-width:769px)": {
-      fontSize: "4vw",
+      fontSize: "2vh",
     },
   },
   labelText: {
@@ -115,6 +115,8 @@ export const styles = mergeStyleSets({
     transition: "opacity 250ms ease",
   },
   labelContainer:{
+    display:'flex',
+    flexDirection:"column",
     "@media screen and (min-width:1024px)": {
       marginTop:"0%"
     },

@@ -46,7 +46,7 @@ export const styles = mergeStyleSets({
     backgroundColor: Colors.DarkGrey,
     "@media screen and (min-width:1024px)": {
         height: "70%",
-        width: "30%",
+        width: "45vw",
     },
     "@media screen and (max-width:1023px)": {
         height: "60%",
@@ -61,7 +61,7 @@ export const styles = mergeStyleSets({
     backgroundColor: Colors.DarkGrey,
     "@media screen and (min-width:1024px)": {
         height: "8%",
-        width: "30%",
+        width: "45vw",
     },
     "@media screen and (max-width:1023px)": {
         height: "8%",
